@@ -9,7 +9,7 @@
 
    Fields:
    - title:    the headline
-   - url:      the article file, e.g. "articles/my-new-essay.html"
+   - url:      the essay link, e.g. "/articles/my-new-essay" (no .html)
    - category: "Geopolitics", "Technology", or "Nepal"
    - date:     e.g. "July 2026"
    - minutes:  reading time, just a number
@@ -19,7 +19,7 @@
 const ARTICLES = [
   {
     title: "Why Nepal's voice matters in a multipolar world",
-    url: "articles/why-nepals-voice-matters.html",
+    url: "/articles/why-nepals-voice-matters",
     category: "Geopolitics",
     date: "July 2026",
     minutes: 8,
@@ -29,7 +29,7 @@ const ARTICLES = [
   },
   {
     title: "Technology is changing diplomacy — are we paying attention?",
-    url: "articles/technology-is-changing-diplomacy.html",
+    url: "/articles/technology-is-changing-diplomacy",
     category: "Technology",
     date: "June 2026",
     minutes: 6,
@@ -39,7 +39,7 @@ const ARTICLES = [
   },
   {
     title: "A clearer lens on the region we call home",
-    url: "articles/a-clearer-lens-on-the-region.html",
+    url: "/articles/a-clearer-lens-on-the-region",
     category: "Nepal",
     date: "May 2026",
     minutes: 7,

@@ -27,7 +27,13 @@ menu items).
 
 ## Run locally
 
-Open `index.html` in a browser.
+```
+python3 serve.py
+```
+
+Then open http://localhost:8720 — this serves clean URLs (`/writing`,
+`/about`) exactly like Vercel does in production. (Opening `index.html`
+directly also works, but internal links need the server.)
 
 ## Publish
 
