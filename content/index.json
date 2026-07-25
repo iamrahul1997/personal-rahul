@@ -1,5 +1,17 @@
 [
   {
+    "slug": "what-is-lorem",
+    "title": "What is Lorem",
+    "category": "Geopolitics",
+    "date": "July 2026",
+    "minutes": 1,
+    "excerpt": "What is Lorem Ipsum?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever sin…",
+    "featured": false,
+    "image": null,
+    "metaTitle": null,
+    "metaDescription": null
+  },
+  {
     "slug": "what-is-lorem-ipsum",
     "title": "What is Lorem Ipsum",
     "category": "Geopolitics",
