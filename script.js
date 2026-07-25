@@ -105,11 +105,59 @@
     });
   }
 
-  /* Floating navbar condenses once the page is scrolled. */
+  /* Newsletter form — subscribers land in your inbox via FormSubmit
+     (same service and one-time activation as the contact form). */
+  var newsletter = document.querySelector("[data-newsletter]");
+  if (newsletter) {
+    newsletter.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var note = newsletter.parentElement.querySelector(".form-note");
+      var email = newsletter.email.value.trim();
+      if (!/.+@.+\..+/.test(email)) {
+        note.textContent = "Please enter a valid email address.";
+        note.classList.add("is-error");
+        return;
+      }
+      note.classList.remove("is-error");
+      note.textContent = "Subscribing…";
+      fetch("https://formsubmit.co/ajax/rahulpoudel2020@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          email: email,
+          _subject: "New newsletter subscriber",
+          _template: "table",
+          _captcha: "false",
+        }),
+      }).then(
+        function (res) {
+          if (!res.ok) throw new Error();
+          newsletter.reset();
+          note.textContent = "You're on the list — welcome!";
+        }
+      ).catch(function () {
+        note.textContent = "Something went wrong. Please try again later.";
+        note.classList.add("is-error");
+      });
+    });
+  }
+
+  /* Floating navbar: condenses when scrolled, hides once you're past
+     the first screen and scrolling down, returns when you scroll up. */
   var navWrap = document.querySelector(".nav-wrap");
   if (navWrap) {
+    var lastY = window.scrollY;
     var onScroll = function () {
-      navWrap.classList.toggle("scrolled", window.scrollY > 24);
+      var y = window.scrollY;
+      navWrap.classList.toggle("scrolled", y > 24);
+      var goingDown = y > lastY + 4;
+      var goingUp = y < lastY - 4;
+      if (y > window.innerHeight * 0.9 && goingDown) {
+        navWrap.classList.add("nav-hidden");
+      } else if (goingUp || y <= window.innerHeight * 0.9) {
+        navWrap.classList.remove("nav-hidden");
+      }
+      if (goingDown || goingUp) lastY = y;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();

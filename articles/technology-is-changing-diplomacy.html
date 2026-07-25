@@ -81,14 +81,23 @@
       </div>
     </main>
 
-    <footer class="site-footer">
-        <form class="signup-form" data-signup novalidate>
-          <label class="sr-only" for="signup-email">Email address</label>
-          <input id="signup-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+    <!-- ===== Newsletter ===== -->
+    <section class="newsletter">
+      <div class="halftone ht-news" aria-hidden="true"></div>
+      <div class="section-shell newsletter-inner" data-reveal>
+        <p class="eyebrow">Newsletter</p>
+        <h2>Get new essays in your inbox.</h2>
+        <p class="newsletter-blurb">No spam. Just geopolitics, technology, and Nepal—when there's something worth reading.</p>
+        <form class="newsletter-form" data-newsletter novalidate>
+          <label class="sr-only" for="nl-email">Email address</label>
+          <input id="nl-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
           <button class="button button-primary" type="submit">Subscribe</button>
-          <p class="form-note" role="status" aria-live="polite"></p>
         </form>
+        <p class="form-note" role="status" aria-live="polite"></p>
       </div>
+    </section>
+
+    <footer class="site-footer">
       <div class="section-shell footer-inner">
         <div>
           <a class="brand" href="../index.html"><img class="brand-mark" src="../assets/rahul-portrait.jpg" alt="" /><span>Rahul Poudel</span></a>
