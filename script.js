@@ -19,29 +19,29 @@
     el.textContent = new Date().getFullYear();
   });
 
-  /* Scroll-reveal: anything with data-reveal fades up on first view. */
+  /* Scroll-reveal: anything with data-reveal fades up on first view.
+     window.__observeReveal lets articles.js register cards it adds later. */
+  var revealObserver = null;
+  if ("IntersectionObserver" in window) {
+    revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+  }
+  window.__observeReveal = function (el) {
+    if (revealObserver) revealObserver.observe(el);
+    else el.classList.add("revealed");
+  };
   document.addEventListener("DOMContentLoaded", function () {
-    var revealed = document.querySelectorAll("[data-reveal]");
-    if (!("IntersectionObserver" in window) || revealed.length === 0) {
-      revealed.forEach(function (el) { el.classList.add("revealed"); });
-    } else {
-      var io = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("revealed");
-              io.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
-      revealed.forEach(function (el) { io.observe(el); });
-    }
-
-    /* Stagger article cards inside any revealed grid. */
-    document.querySelectorAll(".story-grid .story-card").forEach(function (card, i) {
-      card.style.transitionDelay = (i * 90) + "ms";
+    document.querySelectorAll("[data-reveal]").forEach(function (el) {
+      window.__observeReveal(el);
     });
   });
 

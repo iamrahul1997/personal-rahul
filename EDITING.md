@@ -1,5 +1,11 @@
 # ✏️ How to edit this site (from GitHub, no coding tools needed)
 
+> **New:** articles are now managed by your CMS (the `personal-rahul-cms`
+> repo/app) — write, edit, upload images, and set categories there, and it
+> publishes to this repo automatically. The article data lives in
+> `content/index.json` (the list) and `content/articles/<slug>.json`
+> (each essay). Everything below still works for manual edits.
+
 Everything below can be done in your browser at github.com — open a file, tap the
 pencil icon (✏️), make the change, press **Commit changes**.
 
