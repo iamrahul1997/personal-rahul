@@ -1,17 +1,5 @@
 [
   {
-    "slug": "cms-pipeline-test",
-    "title": "CMS pipeline test — please ignore",
-    "category": "CMS Test",
-    "date": "July 2026",
-    "minutes": 1,
-    "excerpt": "A temporary post proving the CMS publish pipeline works end to end.",
-    "featured": false,
-    "image": "/assets/uploads/cms-pipeline-test-cover.png",
-    "metaTitle": "CMS pipeline test — Rahul Poudel",
-    "metaDescription": "Temporary CMS pipeline test article."
-  },
-  {
     "slug": "why-nepals-voice-matters",
     "title": "Why Nepal's voice matters in a multipolar world",
     "category": "Geopolitics",
