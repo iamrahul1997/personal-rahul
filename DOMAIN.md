@@ -36,7 +36,23 @@ additive; the `.vercel.app` addresses keep working alongside it.
 Your login and publishing keep working unchanged — the CMS connects to
 GitHub's API, which doesn't care what domain the CMS is served from.
 
-## Step 3 — One line of polish (after the domain is live)
+## Step 3 — SEO URLs (after the domain is live)
+
+The SEO files (canonical tags, `og:url`/`og:image`, `sitemap.xml`,
+`robots.txt`) contain absolute URLs, which currently use the vercel.app
+address. Once the domain works, do a find-and-replace across this repo:
+
+> replace `https://personal-rahul.vercel.app` → `https://poudelrahul.com.np`
+
+(GitHub web: search the repo for the old URL — it lists every file; edit
+each with the pencil. Or ask Claude to do it in one commit.) Until you do
+this, nothing is broken — the vercel.app URLs stay live — but search
+engines will treat vercel.app as the "real" address, so do it soon after
+the domain is up. Also submit `https://poudelrahul.com.np/sitemap.xml` in
+[Google Search Console](https://search.google.com/search-console) to get
+indexed fast.
+
+## Step 4 — One line in the CMS (after the domain is live)
 
 In the **personal-rahul-cms** repo, open `app.js` and change:
 
